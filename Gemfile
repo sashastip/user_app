@@ -17,6 +17,8 @@ gem 'figaro'
 
 gem 'devise'
 
+gem 'pry'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

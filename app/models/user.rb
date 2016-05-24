@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   after_create :send_email_registration
 
   def send_email_registration
-    UserMailer.email_registration(current_user).deliver
+    UserMailer.email_registration(self).deliver_now
   end
 end
