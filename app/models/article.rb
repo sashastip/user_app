@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  validates :title, :text
+  
   def self.search(query)
     __elasticsearch__.search(
       {
