@@ -16,6 +16,13 @@ class Article < ActiveRecord::Base
       }
     )
   end
+
+  setting index: { number_of_shards: 1 } do
+    mapping dynamic: 'false' do 
+      indexes :title, analyzer: 'english'
+      indexes :text, analyzer: 'english'
+    end
+  end
 end
 
 Article.import
