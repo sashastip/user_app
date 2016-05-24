@@ -19,6 +19,9 @@ gem 'devise'
 
 gem 'pry'
 
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
