@@ -6,17 +6,10 @@ class Article < ActiveRecord::Base
 
   validates :title, :text, presence: true
 
-  def self.search(query)
-    __elasticsearch__.search(
-      {
-        query: {
-          multi_match: {
-            query: query,
-            fields: ['title^10', 'text']
-          }
-        }
-      }
-    )
+  def as_indexed_json(options={})
+    self.as_json(
+      only: [:id, :title, :text]
+      )
   end
 end
 
