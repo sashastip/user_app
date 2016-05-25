@@ -1,11 +1,11 @@
-require 'Elasticsearch/model'
+require 'elasticsearch/model'
 
 class Article < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-  validates :title, :text
-  
+  validates :title, :text, presence: true
+
   def self.search(query)
     __elasticsearch__.search(
       {
@@ -17,13 +17,6 @@ class Article < ActiveRecord::Base
         }
       }
     )
-  end
-
-  setting index: { number_of_shards: 1 } do
-    mapping dynamic: 'false' do 
-      indexes :title, analyzer: 'english'
-      indexes :text, analyzer: 'english'
-    end
   end
 end
 
