@@ -1,4 +1,4 @@
-$('#search_text').change(function() {
+$('#search').change(function() {
   $.ajax({
   	type: POST,
   	url: '/search',
