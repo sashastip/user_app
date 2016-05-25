@@ -1,9 +1,16 @@
 class SearchController < ApplicationController
   def search
-    if params[:q].nil?
-      @articles = []
-    else
-      @articles = Article.search params[:q]
+    @articles = Article.search params[:q]
+    
+    respond_to do |format|
+      if params[:q].nil?
+        @article = []
+        format.html { @article }
+        format.js {}
+      else
+        format.html { @article }
+        format.js {}
+      end
     end
   end
 end
