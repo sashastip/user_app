@@ -22,6 +22,8 @@ gem 'pry'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 
+gem 'react-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
